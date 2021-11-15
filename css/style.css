@@ -6,7 +6,12 @@
 }
 
 body {
-    margin-top: 180px;
+    margin-top: 140px;
+}
+
+.container {
+    max-width: 780px;
+    margin: 0 auto;
 }
 
 header {
@@ -23,6 +28,20 @@ header {
 header img {
     max-height: 100%;
     margin-right: 25px;
+}
+
+.todo {
+    position: relative;
+}
+
+todo::before {
+    content: '';
+    width: 14px;
+    aspect-ratio: 1 / 1;
+    background-color: chartreuse;
+    position: absolute;
+    top: 5px;
+    left: 10px;
 }
 
 .todo.completed {
