@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css' integrity='sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==' crossorigin='anonymous'/>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css' integrity='sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==' crossorigin='anonymous'/>
     <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
@@ -23,8 +23,8 @@
                     <button @click="addTodo">Aggiungi</button>
                 </section>
                 <section class="todo-list">
-                    <a v-if="activeFilter" @click.prevent="toggleFilter" href="#">Mostra tutti i Todo</a>
-                    <a v-else="!activeFilter" @click.prevent="toggleFilter" href="#">Mostra i todo non completati</a>
+                    <a v-if="activeFilter" @click.prevent="toggleFilter" href="#" class="filter-link">Mostra tutti i Todo</a>
+                    <a v-else="!activeFilter" @click.prevent="toggleFilter" href="#" class="filter-link">Mostra i todo non completati</a>
                     <ul v-if="todos.length > 0">
                         <li v-for="(todo, i) in todos" class="todo" :class="{completed: todo.completed}" @click="toggleCompleted(i)" v-show="(!activeFilter) || (!todo.completed)">
                             <span class="todo-body">{{todos[i].text}}</span>

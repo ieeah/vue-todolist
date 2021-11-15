@@ -6,7 +6,7 @@
 }
 
 body {
-    margin-top: 140px;
+    margin-top: 120px;
 }
 
 .container {
@@ -30,22 +30,83 @@ header img {
     margin-right: 25px;
 }
 
-.todo {
-    position: relative;
+.add-todo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 28px;
+    margin-block: 20px;
 }
 
-todo::before {
+.add-todo input {
+    flex-grow: 1;
+    margin-right: 20px;
+    border: 0;
+    border-bottom: 2px solid black;
+}
+
+.add-todo input:focus {
+    outline: 0;
+    border-width: 3px;
+    border-color: teal;
+}
+
+.add-todo button {
+    background-color: hsl(180, 100%, 25%);
+    color: white;
+    font-weight: bold;
+    padding: 7px 13px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.add-todo button:hover,
+.add-todo button:active {
+    background-color: hsl(180, 100%, 35%);
+    color: black;
+}
+
+.todo {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    transition: all .1s ease-in-out;
+    margin-top: 15px;
+}
+
+.todo:first-of-type {
+    margin-top: 25px;
+}
+
+.todo .delete {
+    color: black;
+}
+
+.todo .delete:hover {
+    color: hsl(8, 77%, 67%);
+    cursor: pointer;
+}
+
+.todo::before {
     content: '';
     width: 14px;
     aspect-ratio: 1 / 1;
-    background-color: chartreuse;
     position: absolute;
-    top: 5px;
+    top: 3px;
     left: 10px;
+    border: 2px solid hsl(180, 100%, 35%);
+}
+
+.todo.completed::before {
+    background-color: hsl(180, 100%, 25%);
 }
 
 .todo.completed {
     color: grey;
     text-decoration-color: black;
     text-decoration: line-through;
+    text-decoration-thickness: 2px;
 }
