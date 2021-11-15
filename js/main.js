@@ -50,6 +50,12 @@ const app = new Vue({
             // negare il valore di completed al click sul todo
             this.todos[i].completed = !this.todos[i].completed;
             // console.log(this.todos[i].completed);
-        }
+        },
+
+        ////////////////
+
+        removeTodo(i) {
+            this.todos.splice(i, 1);
+        },
     },
 });

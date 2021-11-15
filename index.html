@@ -26,7 +26,7 @@
                     <ul>
                         <li v-for="(todo, i) in todos" class="todo" :class="{completed: todo.completed}" @click="toggleCompleted(i)">
                             <span class="todo-body">{{todos[i].text}}</span>
-                            <i class="fas fa-trash delete"></i>
+                            <i class="fas fa-trash delete" @click="removeTodo(i)"></i>
                         </li>
                     </ul>
                 </section>
