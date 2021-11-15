@@ -17,6 +17,14 @@ const app = new Vue({
             },
         ],
         newTodoText: '',
+        activeFilter: false,
+    },
+    computed: {
+        // salviamo quanti todo nell'array hanno completed true
+        completedTodos() {
+            const completed = this.todos.filter( todo => todo.completed);
+            return completed.length;
+        },
     },
     methods: {
         addTodo() {
@@ -44,9 +52,19 @@ const app = new Vue({
         },
 
         ////////////////
+
         // rimuovere il todo specifica quando si clicca sull'icona del cestino
         removeTodo(i) {
             this.todos.splice(i, 1);
         },
+
+        //////////////
+
+        toggleFilter() {
+            this.activeFilter = !this.activeFilter;
+        }
     },
 });
+
+
+// rendere visibili solo gli elementi che hanno completed = false, quando clicchiamo sulla casella del filtro (activeFilter = true)

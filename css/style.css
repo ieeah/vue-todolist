@@ -14,15 +14,15 @@ header {
     top: 0;
     left: 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    height: 150px;
+    height: 100px;
     width: 100%;
     padding: 1rem;
 }
 
 header img {
     max-height: 100%;
+    margin-right: 25px;
 }
 
 .todo.completed {

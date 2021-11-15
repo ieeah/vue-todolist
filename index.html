@@ -23,8 +23,14 @@
                     <button @click="addTodo">Aggiungi</button>
                 </section>
                 <section class="todo-list">
+                    <a v-if="!activeFilter" @click.prevent="toggleFilter" href="#">Mostra tutti i todo</a>
+                    <a v-else="activeFilter" @click.prevent="toggleFilter" href="#">Mostra solo i Todo da completare</a>
                     <ul v-if="todos.length > 0">
-                        <li v-for="(todo, i) in todos" class="todo" :class="{completed: todo.completed}" @click="toggleCompleted(i)">
+                        <li v-for="(todo, i) in todos" class="todo" :class="{completed: todo.completed}" @click="toggleCompleted(i)" v-show="(activeFilter) || (!todo.completed)">
+
+                            <!-- (filterActive === false) || (filterActive === true && todo.completed === false) -->
+
+
                             <span class="todo-body">{{todos[i].text}}</span>
                             <i class="fas fa-trash delete" @click="removeTodo(i)"></i>
                         </li>
