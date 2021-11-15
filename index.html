@@ -18,7 +18,7 @@
 
             <main class="todos">
                 <section class="add-todo">
-                    <input type="text" v-model.trim="newTodoText" placeholder="Cosa devi fare?">
+                    <input type="text" v-model.trim="newTodoText" placeholder="Cosa devi fare?" ref="inputText" @keyup.enter="addTodo">
                     <button @click="addTodo">Aggiungi</button>
                 </section>
                 <section class="todo-list">

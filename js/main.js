@@ -29,10 +29,18 @@ const app = new Vue({
     },
     methods: {
         addTodo() {
-            this.todos.push({
+            // se il valore di input non è vuoto, allora inserirlo nella lista di todos
+            if(this.newTodoText != '') {
+                this.todos.push({
                 text: this.newTodoText,
                 completed: false,
-            },);
+            })}
+
+            // svuotare il campo di testo dell'input
+            this.newTodoText = '';
+
+            // lasciare il focus al campo di input
+            this.$refs.inputText.focus();
         },
     },
 });
