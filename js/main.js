@@ -42,5 +42,14 @@ const app = new Vue({
             // lasciare il focus al campo di input
             this.$refs.inputText.focus();
         },
+
+        ////////////////
+
+        // switchare la classe completed in base al suo stato
+        toggleCompleted(i) {
+            // negare il valore di completed al click sul todo
+            this.todos[i].completed = !this.todos[i].completed;
+            // console.log(this.todos[i].completed);
+        }
     },
 });

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css' integrity='sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==' crossorigin='anonymous'/>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -23,8 +24,8 @@
                 </section>
                 <section class="todo-list">
                     <ul>
-                        <li v-for="(todo, index) in todos" class="todo">
-                            <span class="todo-body">{{todos[index].text}}</span>
+                        <li v-for="(todo, i) in todos" class="todo" :class="{completed: todo.completed}" @click="toggleCompleted(i)">
+                            <span class="todo-body">{{todos[i].text}}</span>
                             <i class="fas fa-trash delete"></i>
                         </li>
                     </ul>
