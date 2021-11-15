@@ -5,11 +5,11 @@ const app = new Vue({
         todos: [
             {
                 text: 'corpo todo numero 1',
-                completed: true,
+                completed: false,
             },
             {
                 text: 'corpo todo numero 2',
-                completed: true,
+                completed: false,
             },
             {
                 text: 'corpo todo numero 3',
@@ -33,7 +33,7 @@ const app = new Vue({
                 this.todos.push({
                 text: this.newTodoText,
                 completed: false,
-            })}
+            })} 
 
             // svuotare il campo di testo dell'input
             this.newTodoText = '';
@@ -48,7 +48,6 @@ const app = new Vue({
         toggleCompleted(i) {
             // negare il valore di completed al click sul todo
             this.todos[i].completed = !this.todos[i].completed;
-            // console.log(this.todos[i].completed);
         },
 
         ////////////////
@@ -56,15 +55,27 @@ const app = new Vue({
         // rimuovere il todo specifica quando si clicca sull'icona del cestino
         removeTodo(i) {
             this.todos.splice(i, 1);
+            console.log('indice', i);
         },
 
         //////////////
 
         toggleFilter() {
             this.activeFilter = !this.activeFilter;
-        }
+        },
+
+        ////////////////
+
+        allDone() {
+            let done = false;
+
+            if (this.filterActive && this.completedTodos == this.todos.length) {
+                done = true;
+            } else {
+                done = false;
+            }
+
+            return done;
+        },
     },
 });
-
-
-// rendere visibili solo gli elementi che hanno completed = false, quando clicchiamo sulla casella del filtro (activeFilter = true)

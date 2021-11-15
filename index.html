@@ -22,13 +22,19 @@
                     <input type="text" v-model.trim="newTodoText" placeholder="Cosa devi fare?" ref="inputText" @keyup.enter="addTodo">
                     <button @click="addTodo">Aggiungi</button>
                 </section>
+                
+                    <div class="filter-wrap">
+                        <a v-if="activeFilter" @click.prevent="toggleFilter" href="#" class="filter-link">Todo non completati</a>
+                        <a v-else="!activeFilter" @click.prevent="toggleFilter" href="#" class="filter-link">Tutti i Todo</a>
+                    </div>
                 <section class="todo-list">
-                    <a v-if="activeFilter" @click.prevent="toggleFilter" href="#" class="filter-link">Mostra tutti i Todo</a>
-                    <a v-else="!activeFilter" @click.prevent="toggleFilter" href="#" class="filter-link">Mostra i todo non completati</a>
                     <ul v-if="todos.length > 0">
-                        <li v-for="(todo, i) in todos" class="todo" :class="{completed: todo.completed}" @click="toggleCompleted(i)" v-show="(!activeFilter) || (!todo.completed)">
-                            <span class="todo-body">{{todos[i].text}}</span>
+                        <li v-for="(todo, i) in todos" class="todo" :class="{completed: todo.completed}" v-show="(!activeFilter) || (!todo.completed)" >
+                            <span class="todo-body" @click="toggleCompleted(i)">{{todos[i].text}}</span>
                             <i class="fas fa-trash delete" @click="removeTodo(i)"></i>
+                        </li>
+                        <li v-show="allDone == true">
+                            Sei una macchina! hai già completato tutti i todo!
                         </li>
                     </ul>
                     <h2 v-else="todos.length == 0">Non ci sono Todos, aggiungine uno adesso!</h2>
