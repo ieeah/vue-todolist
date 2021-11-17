@@ -55,7 +55,6 @@ const app = new Vue({
         // rimuovere il todo specifica quando si clicca sull'icona del cestino
         removeTodo(i) {
             this.todos.splice(i, 1);
-            console.log('indice', i);
         },
 
         //////////////
